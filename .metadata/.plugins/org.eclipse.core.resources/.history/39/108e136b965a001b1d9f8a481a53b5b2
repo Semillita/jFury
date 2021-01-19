@@ -1,0 +1,11 @@
+package org.hugo.jfury.sandbox;
+
+public class Main {
+
+	public static void main(String[] args) {
+		GLWindow window = new GLWindow() {
+			
+		}
+	}
+	
+}

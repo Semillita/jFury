@@ -1,0 +1,9 @@
+package org.hugo.jfury.backend.applikation;
+
+public class JFuryApplication {
+
+	public JFuryApplication() {
+		
+	}
+	
+}

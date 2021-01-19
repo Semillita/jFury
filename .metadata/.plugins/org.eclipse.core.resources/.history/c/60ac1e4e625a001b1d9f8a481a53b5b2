@@ -1,0 +1,11 @@
+package org.hugo.jfury.backend.window;
+
+import org.hugo.jfury.backend.window.configuration.WindowConfiguration;
+
+public class MainWindow extends Window {
+
+	public MainWindow(WindowConfiguration windowConfig) {
+		super(windowConfig);
+	}
+
+}

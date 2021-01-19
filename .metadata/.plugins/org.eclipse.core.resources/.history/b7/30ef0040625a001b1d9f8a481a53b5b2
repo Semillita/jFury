@@ -1,0 +1,9 @@
+package org.hugo.jfury.backend.window;
+
+public class Window {
+
+	public Window(WindowConfiguration windowConfig) {
+		
+	}
+	
+}

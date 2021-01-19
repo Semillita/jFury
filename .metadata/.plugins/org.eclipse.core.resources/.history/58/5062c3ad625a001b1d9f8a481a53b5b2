@@ -1,0 +1,5 @@
+package org.hugo.jfury.backend.window;
+
+public class ReturnSubWindow {
+	
+}
