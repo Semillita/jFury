@@ -15,10 +15,13 @@ public class GLWindow {
 		this.width = width;
 		this.height = height;
 		this.title = title;
+		
 		run();
 	}
 	
 	public void run() {
+		GLFWErrorCallback.createPrint(System.err).set();
+		
 		if(!GLFW.glfwInit()) {
 			System.err.println("GLFW wasn't initialized");
 			return;
@@ -41,12 +44,8 @@ public class GLWindow {
 		
 		GLFW.glfwShowWindow(windowID);
 		GL.createCapabilities();
-		init();
+		
 		loop();
-	}
-	
-	public void init() {
-		GLFWErrorCallback.createPrint(System.err).set();
 	}
 	
 	public void loop() {
@@ -59,10 +58,11 @@ public class GLWindow {
 				fps = 0;
 				lastSecond = System.nanoTime();
 			}
-			GLFW.glfwPollEvents();
-			GL11.glClearColor(1.0f, 0.f, 0.0f, 1.0f);
+			
+			GL11.glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 			GLFW.glfwSwapBuffers(windowID);
+			GLFW.glfwPollEvents();
 		}
 	}
 	
