@@ -1,9 +1,0 @@
-package org.hugo.jfury.backend.window;
-
-public class MainWindow extends Window {
-
-	public MainWindow(WindowConfiguration windowConfig) {
-		super(windowConfig);
-	}
-
-}

@@ -1,2 +1,0 @@
-INDEX VERSION 1.131+C:\Users\Hugo\Programming\jFury\.metadata\.plugins\org.eclipse.jdt.core
-3549441637.index

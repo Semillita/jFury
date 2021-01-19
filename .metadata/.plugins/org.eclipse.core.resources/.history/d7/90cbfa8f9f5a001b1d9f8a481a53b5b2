@@ -1,5 +1,0 @@
-package org.hugo.jfury.sandbox;
-
-public enum Test {
-
-}
