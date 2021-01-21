@@ -1,0 +1,11 @@
+.metadata/
+
+Engine/.settings/
+Engine/bin/
+Engine/.classpath
+Engine/.project
+
+Sandbox/.settings/
+Sandbox/bin/
+Sandbox/.classpath
+Sandbox/.project
