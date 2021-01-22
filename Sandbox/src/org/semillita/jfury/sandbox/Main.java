@@ -1,9 +1,9 @@
-package org.hugo.jfury.sandbox;
+package org.semillita.jfury.sandbox;
 
-import org.hugo.jfury.engine.core.JFury;
-import org.hugo.jfury.engine.window.WindowConfig;
-import org.hugo.jfury.sandbox.windows.GreenWindow;
-import org.hugo.jfury.sandbox.windows.RedWindow;
+import org.semillita.jfury.JFury;
+import org.semillita.jfury.WindowConfig;
+import org.semillita.jfury.sandbox.windows.GreenWindow;
+import org.semillita.jfury.sandbox.windows.RedWindow;
 
 public class Main {
 

@@ -1,14 +1,13 @@
-package org.hugo.jfury.sandbox.windows;
+package org.semillita.jfury.sandbox.windows;
 
-import org.hugo.jfury.engine.window.Window;
-import org.hugo.jfury.engine.window.WindowListener;
+import org.semillita.jfury.Window;
+import org.semillita.jfury.WindowListener;
 
 public class GreenWindow implements WindowListener {
 
 	@Override
 	public void create(Window window) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Green window was created");
 	}
 
 	@Override
@@ -30,15 +29,14 @@ public class GreenWindow implements WindowListener {
 	}
 
 	@Override
-	public void resize(Window window) {
+	public void resize(int width, int height, Window window) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void destroy(Window window) {
-		// TODO Auto-generated method stub
-		
+	public void close(Window window) {
+		System.out.println("Green window was closed");
 	}
 
 }

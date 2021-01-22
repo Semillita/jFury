@@ -1,15 +1,13 @@
-package org.hugo.jfury.engine.core;
+package org.semillita.jfury;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hugo.jfury.engine.window.Window;
-import org.hugo.jfury.engine.window.WindowConfig;
-import org.hugo.jfury.engine.window.WindowListener;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
+import org.semillita.jfury.graphics.scene.Scene;
 
 public class JFury {
 
@@ -54,19 +52,19 @@ public class JFury {
 		}
 	}
 
-	private static class GLWindow {
+	static class GLWindow {
 		private final WindowListener listener;
 		private final WindowConfig config;
-		long handle;
+		private long handle;
+		private Scene scene;
 
-		public GLWindow(WindowListener listener, WindowConfig config) {
+		GLWindow(WindowListener listener, WindowConfig config) {
 			this.listener = listener;
 			this.config = config;
 			create();
 		}
 
 		void create() {
-			System.out.println("create");
 			GLFW.glfwDefaultWindowHints();
 			GLFW.glfwWindowHint(GLFW.GLFW_VISIBLE, 0);
 			if (config.resizable)
@@ -83,6 +81,7 @@ public class JFury {
 			GLFW.glfwSwapInterval(1);
 			GLFW.glfwShowWindow(handle);
 			GL.createCapabilities();
+			listener.create(new Window(this));
 		}
 
 		void update() {
@@ -90,18 +89,24 @@ public class JFury {
 			if (GLFW.glfwWindowShouldClose(handle)) {
 				close();
 			}
+			listener.update(new Window(this));
 			GL11.glClearColor(config.r, config.g, config.b, 1);
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
-			//Draw sprites here
+			// Draw sprites here
 			GLFW.glfwSwapBuffers(handle);
 			GLFW.glfwPollEvents();
 		}
 
 		void close() {
+			listener.close(new Window(this));
 			closedWindows.add(this);
 			GLFW.glfwDestroyWindow(this.handle);
 		}
-		
+
+		void setScene(Scene scene) {
+			this.scene = scene;
+		}
+
 	}
 
 }

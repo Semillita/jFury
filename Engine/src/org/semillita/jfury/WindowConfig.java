@@ -1,4 +1,4 @@
-package org.hugo.jfury.engine.window;
+package org.semillita.jfury;
 
 public class WindowConfig {
 
