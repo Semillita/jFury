@@ -1,0 +1,23 @@
+plugins {
+    id 'org.semillitas.jfury.java-library-conventions'
+}
+
+
+def platform = 'dunno'
+import org.gradle.internal.os.OperatingSystem
+if (OperatingSystem.current().isMacOsX()) {
+    platform = 'macos'
+} else if (OperatingSystem.current().isLinux()) {
+    platform = 'linux'
+} else if (OperatingSystem.current().isWindows()) {
+    platform = 'windows'
+}
+
+dependencies {
+    ext.lwjglVersion = "3.2.3"
+    implementation "org.lwjgl:lwjgl:$lwjglVersion"
+    implementation "org.lwjgl:lwjgl:$lwjglVersion:natives-$platform"
+    implementation "org.lwjgl:lwjgl-glfw:$lwjglVersion"
+    implementation "org.lwjgl:lwjgl-opengl:$lwjglVersion"
+}
+
