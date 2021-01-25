@@ -1,0 +1,12 @@
+plugins {
+    id 'org.semillitas.jfury.java-application-conventions'
+}
+
+dependencies {
+    implementation project(':Engine')
+}
+
+application {
+    mainClass = 'org.semillita.jfury.sandbox.Main'
+    applicationDefaultJvmArgs = ['-XstartOnFirstThread']
+}
