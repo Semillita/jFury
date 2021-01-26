@@ -1,0 +1,4 @@
+plugins {
+    id 'org.semillitas.jfury.java-common-conventions'
+    id 'application'
+}
