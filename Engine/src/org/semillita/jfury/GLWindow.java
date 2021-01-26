@@ -3,14 +3,25 @@ package org.semillita.jfury;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL30;
 import org.semillita.jfury.graphics.Scene;
+import org.semillita.jfury.graphics.shaders.Shader;
 
 final class GLWindow {
 	
 	long handle;
 	private final WindowListener listener;
 	private final WindowConfig config;
+	int width, height;
+	String title;
+	int x, y;
+	
+	boolean fullscreen;
+	boolean resizable;
+	
 	private Scene scene;
+	
+	Shader shader;
 
 	GLWindow(WindowListener listener, WindowConfig config) {
 		this.listener = listener;
@@ -36,6 +47,8 @@ final class GLWindow {
 		GLFW.glfwShowWindow(handle);
 		GL.createCapabilities();
 		listener.create(new Window(this));
+		shader = new Shader();
+		shader.init();
 	}
 
 	void update() {
@@ -44,9 +57,10 @@ final class GLWindow {
 			close();
 		}
 		listener.update(new Window(this));
-		GL11.glClearColor(config.r, config.g, config.b, 1);
-		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
+		GL30.glClearColor(config.r, config.g, config.b, 1);
+		GL30.glClear(GL30.GL_COLOR_BUFFER_BIT);
 		// Draw sprites here
+		shader.update();
 		GLFW.glfwSwapBuffers(handle);
 		GLFW.glfwPollEvents();
 	}
